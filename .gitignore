@@ -1,0 +1,27 @@
+env/
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+*.pyc
+
+# Source handout and local datasets
+260328 - project4_computer_vision.docx.pdf
+data/
+
+# Generated models and outputs
+models/
+outputs/
+runs/
+*.pth
+*.pt
+sample.jpg
+
+
+env/
+data/
+external_test/
+__pycache__/
+*.pyc
+.DS_Store
+runs/
