@@ -1,52 +1,59 @@
-# TARQ Project 4 - Computer Vision Fundamentals
+<h1 align="center">Computer Vision Fundamentals</h1>
 
-This project introduces computer vision for the TARQ sequence. The goal is to understand how models process images before using vision in robotics projects.
+**Work through convolution, image classification, transfer learning, and object detection with inspectable Python exercises.**
 
-## Project Parts
+Python + PyTorch/torchvision. Dataset and YOLO weights download separately. Some exercises are incomplete; no unified application.
 
-1. MNIST CNN from scratch
-2. CIFAR-10 deeper CNN with batch norm and data augmentation
-3. ResNet-18 transfer learning on a custom 4-class image dataset
-4. YOLO object detection on a static image and webcam
-5. Robotics connection: sense, perceive, represent, plan, act, observe
+By Om Patnaik · repository created September 2026.
 
-## Setup
+## Install
+
+| Platform / path | Start here |
+| --- | --- |
+| Python | `pip install -r requirements.txt` in a virtual environment |
+
+Read `CORRECTIONS.md`, then inspect `cnn_mnist.py`, `cifar10.py`, and `transfer_learning.py`: these contain implemented training paths. Review saved figures without starting training. `conv_scratch.py`, `yolo_demo.py`, and `webcam_detect.py` are still placeholders.
 
 ```bash
-python3 -m venv env
-source env/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+python -m compileall -q .  # inspect syntax without starting training
 ```
 
-## Suggested File Order
+## Why
 
-Work through these in order:
+You need to understand how images become features before connecting vision to a robotics loop. This TARQ sequence covers convolution, MNIST/CIFAR-10 CNNs, ResNet-18 transfer, and YOLO detection. Completion varies by file; the earlier blanket claim that every Python file was a placeholder is stale.
 
-```text
-conv_scratch.py       # small convolution exercise from the PDF
-cnn_mnist.py          # MNIST CNN from scratch
-cifar10.py            # deeper CIFAR-10 CNN
-transfer_learning.py  # ResNet-18 fine-tuning
-yolo_demo.py          # YOLO on static image
-webcam_detect.py      # YOLO webcam detection
+## Inspect a convolution
+
+Begin with the toy kernel and tensor dimensions, then follow the MNIST network. Read each later script before running it to establish what is implemented and which local inputs it expects.
+
+## Connect predictions to observations
+
+The YOLO and webcam exercises are unfinished scaffolds, so they do not yet produce detections. Saved filter, feature-map, and training plots document the classification work; they are not an independently reproduced benchmark.
+
+## Notes from building it
+
+I used separate exercises to connect convolution mechanics with classification and transfer learning. The implemented training files now go beyond the original scaffold description, while detection remains unfinished. I would finish and evaluate each exercise explicitly before claiming that the whole sequence is complete.
+
+## Commands
+
+```bash
+python cnn_mnist.py              # convolution example and MNIST training
+python cifar10.py                # inspect this exercise before running
+python transfer_learning.py      # inspect data paths before running
+python predict_custom.py         # inspect checkpoint/input settings before inference
+python -m compileall -q .        # check syntax without training
 ```
 
-The Python files are intentionally left as placeholders. Type the actual model code yourself from the PDF and `CORRECTIONS.md`.
+## Verify it yourself
 
-## Expected Outputs
-
-```text
-models/mnist_cnn.pth
-outputs/conv1_filters.png
-outputs/conv1_features.png
-models/cifar10_vgg.pth
-outputs/cifar10_curves.png
-models/resnet18_finetuned.pth
-runs/detect/predict/
+```bash
+python -m compileall -q .
 ```
 
-## Learning Rule
+Compilation checks syntax only; no automated model-accuracy suite is present. Review each exercise, dataset split, and saved plot independently. Hardware, webcam, and training checks were not run during this README edit.
 
-For Part 1 and Part 2, write the CNNs yourself. The point is to understand convolutions, feature maps, pooling, batch norm, training/eval mode, and data augmentation.
+## Credits, license and pointers
 
+Built with PyTorch, torchvision, Matplotlib, and the detection packages in `requirements.txt`; exercises build on TARQ course material and MNIST/CIFAR-10/ResNet/YOLO work. No source license file is present.
+
+[Full setup, original notes, and project history](README-DETAILS.md).
